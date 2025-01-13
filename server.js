@@ -10,7 +10,7 @@ import upload from "./middleware/multer.js";
 
 import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/db.js";
-import { downloadFile, uploadFile } from "./controllers/fileControllers.js";
+import { checkFileStatus,  getDownloadUrl,  uploadFile } from "./controllers/fileControllers.js";
 
 const app = express();
 
@@ -36,7 +36,8 @@ app.use(helmet());
 
 // Routes
 app.use("/api/v1/upload", upload.single("file"),uploadFile);
-app.use("/api/v1/download",downloadFile );
+app.use("/api/v1/files/:id", checkFileStatus);
+app.use("/api/v1/download",getDownloadUrl );
 
 // Health check route
 app.get("/", (req, res) => {
