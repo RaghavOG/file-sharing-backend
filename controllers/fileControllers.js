@@ -18,7 +18,7 @@ export const uploadFile = async (req, res) => {
 
     console.log(secure_url, public_id);
 
-const shortFileId = Math.floor(Math.random() * 9000) + 1000;
+const shortFileId = Math.floor(Math.random() * 90000) + 10000;
 
 
     console.log(shortFileId);
