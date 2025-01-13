@@ -41,7 +41,7 @@ app.use("/api/v1/download",getDownloadUrl );
 
 // Health check route
 app.get("/", (req, res) => {
-    res.status(200).json({ success: true, message: 'Server is up and running!' });
+    res.status(200).json({ success: true, message: 'Server is up and running!' , frontend_url: ENV_VARS.FRONTEND_URL});
 });
 
 // Error handling middleware
