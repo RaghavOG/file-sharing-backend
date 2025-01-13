@@ -44,6 +44,9 @@ const shortFileId = Math.floor(Math.random() * 90000) + 10000;
       shortFileId
     });
   } catch (error) {
+    if (error.message.includes('File size exceeds')) {
+      return res.status(413).json({ success: false, message: "File size exceeds the allowed limit." });
+    }
     res.status(500).json({ success: false, message: error.message });
   }
 };

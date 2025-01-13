@@ -14,6 +14,17 @@ async function CloudinaryUpload(file, folder,filename) {
   try {
     if (!file) throw new Error("No file provided");
 
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+    if (file.size > MAX_FILE_SIZE) {
+      throw new Error("File size exceeds the 25MB limit");
+    }
+
+    // === Allowed MIME Types ===
+    const ALLOWED_TYPES = ["image/jpeg", "image/png", "video/mp4", "application/pdf"];
+    if (!ALLOWED_TYPES.includes(file.mimetype)) {
+      throw new Error("Invalid file type. Only JPEG, PNG, MP4, and PDF are allowed");
+    }
+
     const tempDir = os.tmpdir();
     const tempFilePath = path.join(tempDir, file.originalname);  
 
