@@ -16,7 +16,7 @@ async function CloudinaryUpload(file, folder,filename) {
 
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
     if (file.size > MAX_FILE_SIZE) {
-      throw new Error("File size exceeds the 25MB limit");
+      throw new Error("File size exceeds the 10MB limit");
     }
 
     // === Allowed MIME Types ===

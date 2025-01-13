@@ -69,3 +69,5 @@ app.listen(PORT, () => {
         console.error(chalk.bgRed.white('Database connection failed:'), err);
     });
 });
+
+export default app;

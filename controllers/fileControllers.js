@@ -14,7 +14,7 @@ export const uploadFile = async (req, res) => {
     const { originalname, mimetype, size } = file;
 
     // Add file size validation
-    const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
     if (size > MAX_FILE_SIZE) {
       return res.status(413).json({ success: false, message: "File size exceeds 100MB limit" });
     }
