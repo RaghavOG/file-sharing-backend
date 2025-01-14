@@ -16,7 +16,7 @@ const app = express();
 
 // Enable CORS
 app.use(cors({
-    origin: "https://gocloudrop.vercel.app", // Specify your frontend URL
+    origin: "*", 
     credentials: true
 }));
 
